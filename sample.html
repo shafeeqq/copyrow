@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<!--
+Author : Shafeeq.K.Sidhik
+Doha Qatar
+-->
+<head>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="copy.plugin.js"></script>
+ <title>My Plugin - Copyrow</title>
+
+</head>
+<body>
+ <div class="row" style="width:150">
+   <div>test</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
+  </div>
+<script>
+$(".copy").on("click",function(){
+  
+ 
+  $(this).copyrow({
+     "maximum" :"4",
+    "copyfrom" : "row",
+    "custommessage" : "Maxixmum record",
+    "dynamicname" : false,
+    "removeclass" : "deleted",
+   
+  });
+  
+});
+
+
+</script>
+</body>
+</html>
