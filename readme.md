@@ -13,11 +13,11 @@ Pass the css class of that button as 'this' either on click event or any other e
 ## Configuration option
 
 
-     "maximum" :"4"   // Maximum number of rows copy 
+     "maximum" :"4"   // Maximum number of rows can copy 
     "copyfrom" : "row", // The row which you need to copy
     "custommessage" : "Maxixmum record", // Custom message will alert once maximum number exceeds
     "dynamicname" : false,  // the input element will be relaced with auto increment value if it is true and if false it will take same name 
-    "removeclass" : "deleted",  // Automatic button to remove the copied row.Css Class of the button can pass and so you can customize the button  with your own style.
+    "removeclass" : "delete",  // Automatic button to remove the copied row.Css Class of the button can pass and so you can customize the button  with your own style.
 
 
 
