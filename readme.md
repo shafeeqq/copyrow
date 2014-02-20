@@ -19,5 +19,9 @@ Pass the css class of that button as 'this' either on click event or any other e
     "dynamicname" : false,  // the input element will be relaced with auto increment value if it is true and if false it will take same name 
     "removeclass" : "delete",  // Automatic button to remove the copied row.Css Class of the button can pass and so you can customize the button  with your own style.
 
+#Developed BY
+
+SHAFEEQ.K.SIDHIK
+DOHA - QATAR
 
 
