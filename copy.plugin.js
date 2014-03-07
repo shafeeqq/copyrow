@@ -8,6 +8,7 @@
     "removeclass"   : "delete"
   };
 
+
   function CopyRow(element,options)
   {
     
@@ -15,6 +16,7 @@
     this.rowclassname='.'+this.config.copyfrom;
     this.element=element.closest(this.rowclassname);
     this.getindex=$(this.rowclassname).length+1;
+    this.specialclass='__remove';
     this.button=element;
     this.init();
     
@@ -83,14 +85,16 @@
   {
    
      var lastbutton=$(this.button).attr("class"); 
+      $self=this;
   if(this.config.maximum>this.getindex)
   {
-        $self=this;
+       
         
       if(this.element.length>0)
       {
         
       var currentElm=this.element.clone();
+      currentElm.find("."+this.specialclass).remove();
       
       currentElm.find('.'+lastbutton).attr({"class":this.config.removeclass,"value":"-"});
       
@@ -102,7 +106,7 @@
      
         if(this.config.dynamicname==true)
         {
-                var newnname={};
+                
                 
                 $(currentElm).find("input[type='text'],select,checkbox").each(function(){
                     
@@ -115,16 +119,27 @@
                     
                     
                     
+                    
+                   
+                    
+                    
+                    
                 });
         }
+  
        
+
+       $(currentElm).children().each(function(){
+        
+            $(this).addClass($self.specialclass);
+       })
     
             
 
         var attributes=this.getAttributes(currentElm);
         attributes['html'] = currentElm.html();
         
-    
+
  
         $("<"+$(currentElm).get(0).tagName+"/>",attributes).insertAfter(this.rowclassname+':last').on("click","."+this.config.removeclass,function(){
             
