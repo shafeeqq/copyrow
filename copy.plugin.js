@@ -18,6 +18,8 @@
     this.getindex=$(this.rowclassname).length+1;
     this.specialclass='__remove';
     this.button=element;
+   
+    
     this.init();
     
    
@@ -139,12 +141,22 @@
         var attributes=this.getAttributes(currentElm);
         attributes['html'] = currentElm.html();
         
-
- 
-        $("<"+$(currentElm).get(0).tagName+"/>",attributes).insertAfter(this.rowclassname+':last').on("click","."+this.config.removeclass,function(){
+        
+         var obj=$("<"+$(currentElm).get(0).tagName+"/>",attributes).on("click","."+this.config.removeclass,function(){
             
             $(this).closest($self.rowclassname).remove();             
-        });  
+        });
+        
+           
+         
+            $(this.button).after(obj);
+        
+        /*$("<"+$(currentElm).get(0).tagName+"/>",attributes).insertAfter(this.rowclassname+':last').on("click","."+this.config.removeclass,function(){
+            
+            $(this).closest($self.rowclassname).remove();             
+        });  */
+        
+        
         //this.removeRow(currentElm);
        
            
