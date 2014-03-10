@@ -11,19 +11,35 @@ Doha Qatar
 
 </head>
 <body>
- <div class="row" style="width:150">
+<h1>Single Row</h1>
+<div class="parent">
+ <div class="row" style="width:250px;border:1px solid green">
    <div>test</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
   </div>
+</div>
+ <h1>Single Block</h1>
+<div class="parent" >
+<div class="row"  style="width:350px;border:1px solid red">
+Add Block <input type="button" value="+" class="copy"/>  
+<div class="parent">  
+
+  <div class="row">
+   <div>test</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
+  </div>
+</div> 
+</div>
+</div>
 <script>
 $(".copy").on("click",function(){
   
  
   $(this).copyrow({
-     "maximum" :"4",
+     "maximum" :"5",
     "copyfrom" : "row",
     "custommessage" : "Maxixmum record exceed",
-    "dynamicname" : false,
+    "dynamicname" : true,
     "removeclass" : "deleted",
+    "parentclass"    : "parent"
    
   });
   

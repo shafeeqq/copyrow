@@ -5,7 +5,8 @@
     "copyfrom" : "row",
     "custommessage" : "Maximum Number Exceed",
     "dynamicname"   : true,
-    "removeclass"   : "delete"
+    "removeclass"   : "delete",
+    "parentclass"   : "parent"
   };
 
 
@@ -15,10 +16,14 @@
     this.config=$.extend({},defaults,options);
     this.rowclassname='.'+this.config.copyfrom;
     this.element=element.closest(this.rowclassname);
-    this.getindex=$(this.rowclassname).length+1;
-    this.specialclass='__remove';
+    this.parentrow=this.config.parentclass;
     this.button=element;
    
+    this.getindex=$(this.button).closest('.'+this.parentrow).find('>*:not(.'+this.parentrow+')'+this.rowclassname).length;
+    this.specialclass='__remove';
+    
+  
+   //console.log($(this.button).closest('.'+this.parentrow).children(':not(.'+this.parentrow+')').find(this.rowclassname).length)
     
     this.init();
     
@@ -148,8 +153,8 @@
         });
         
            
-         
-            $(this.button).after(obj);
+         $(obj).appendTo($(this.button).closest('.'+this.parentrow));
+          
         
         /*$("<"+$(currentElm).get(0).tagName+"/>",attributes).insertAfter(this.rowclassname+':last').on("click","."+this.config.removeclass,function(){
             
