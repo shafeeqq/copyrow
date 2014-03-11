@@ -1,0 +1,68 @@
+#maindiv
+{
+    color: #000;
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
+    border: 1px solid #CCCCCC;
+    
+}
+h1
+{
+    font-family: tahoma;
+    font-size: 16px;
+    color: #000;
+    background-color: #F1F1F1;
+    height: 40px;   
+    padding: 10px;
+   
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+h2
+{
+    font-family: tahoma;
+    font-size: 18px;
+    color: #4183C4;
+    height: 30px;   
+    padding: 10px;
+    font-weight: bold;
+   
+    
+}
+
+pre
+{
+    font-family: tahoma;
+    background-color: #F1F1F1;
+    padding: 5px;
+    margin: 10px;
+}
+.head
+{
+    font-family: tahoma;
+    color: #A45B7A;
+    margin: 5px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+.step
+{
+    font-family: tahoma;
+    color: #A45B7A;
+    margin: 5px;
+    padding: 3px;
+}
+
+.row
+{
+    border: 1px solid #ccc;
+    width: 250px;
+    padding: 5px 2px 2px 2px;
+    margin: 5px 0px 0px 5px;
+    
+    
+}

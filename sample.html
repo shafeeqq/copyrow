@@ -8,26 +8,84 @@ Doha Qatar
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="copy.plugin.js"></script>
  <title>My Plugin - Copyrow</title>
-
+<link rel="stylesheet"  href="style.css" type="text/css" />
 </head>
 <body>
-<h1>Single Row</h1>
+
+<div id="maindiv">
+<h2>Simple plugin for copy blocks or row</h2>
+<h1>1. Example: Single Row</h1>
 <div class="parent">
- <div class="row" style="width:250px;border:1px solid green">
-   <div>test</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
+ <div class="row">
+   <div>Name</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
   </div>
 </div>
- <h1>Single Block</h1>
+
+<h1>2. Example: Horizontal Columns</h1>
+<table style="width: 100%;">
+<tr class="parent">
+   <td class="row">
+   <div>Name</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
+  </td>
+</tr>
+</table>
+
+<h1>3. Example : Block</h1>
 <div class="parent" >
-<div class="row"  style="width:350px;border:1px solid red">
+<div class="row">
 Add Block <input type="button" value="+" class="copy"/>  
 <div class="parent">  
 
-  <div class="row">
-   <div>test</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
+  <div class="row" style="width: 240px;">
+   <div>Address</div>  <input type="text" name="sample_test" id="sample_test" class="txtbox" value=""><input type="button" value="+" class="copy">
   </div>
 </div> 
 </div>
+</div>
+<br />
+<div class="head">How to Use:</div>
+<div class="step">1 : Download copy.plugin.js  and include javascripts </div>
+<pre>
+<code>
+&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" src="copy.plugin.js"&gt;&lt;/script&gt;
+
+</code>
+</pre>
+
+<div class="step">2 : There should be one button for copy and put class name for the row you need to copy,also put parent class name for the row. </div>
+<pre>
+<code>
+    &lt;div class="parent"&gt;
+     &lt;div class="row"&gt;
+       &lt;div&gt;Name&lt;/div&gt;  &lt;input type="text" name="sample_test" id="sample_test" class="txtbox" value=""&gt;
+        &lt;input type="button" value="+" class="copy"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+</code>
+</pre>
+
+<div class="step">3 : Pass the Configuration options inside the event of copy button </div>
+<pre>
+<code>
+   $(".copy").on("click",function(){
+    
+                $(this).copyrow({
+                "maximum" :"5",
+                "copyfrom" : "row",
+                "custommessage" : "Maxixmum record exceed",
+                "dynamicname" : true,
+                "removeclass" : "deleted",
+                "parentclass"    : "parent"
+               });
+  
+    });
+
+</code>
+</pre>
+
 </div>
 <script>
 $(".copy").on("click",function(){
