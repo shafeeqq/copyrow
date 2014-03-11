@@ -18,13 +18,11 @@
     this.element=element.closest(this.rowclassname);
     this.parentrow=this.config.parentclass;
     this.button=element;
-   
+    this.totalindex=$(this.rowclassname).length+1;
     this.getindex=$(this.button).closest('.'+this.parentrow).find('>*:not(.'+this.parentrow+')'+this.rowclassname).length;
     this.specialclass='__remove';
     
-  
-   //console.log($(this.button).closest('.'+this.parentrow).children(':not(.'+this.parentrow+')').find(this.rowclassname).length)
-    
+     
     this.init();
     
    
@@ -54,24 +52,21 @@
              
                if(checkattr!=undefined && checkattr!='')
                {
-               
-                    newname=$(element).attr(attribute).split("_");
-                    lastvalue=newname.pop();
+                                   
+                    newname=$(element).attr(attribute)+this.totalindex;
+                    newname=newname.split("_");
+                  
                     namelength=newname.length;
                      
                     if(namelength>1)
                     {
                         
-                       /*if(isNaN(lastvalue)==true)
-                       {
-                       
-                        newname=$(this).attr("name")+'_'+$self.getindex;
-                       }  
-                       else
-                       { */                  
-                        newname[namelength-1] = String(this.getindex);
+                         
+                                     
+                        newname[namelength] = String(this.getindex);
+                        
                         newname=newname.join("_");
-                       //}
+                       
                        
                         
                         
@@ -80,7 +75,7 @@
                     else
                     {
                         
-                       newname=$(element).attr(attribute)+'_'+this.getindex;
+                       newname=$(element).attr(attribute)+this.totalindex+'_'+this.getindex;
                     
                     }
                }
@@ -100,13 +95,26 @@
       if(this.element.length>0)
       {
         
-      var currentElm=this.element.clone();
+      var currentElm=this.element.clone(true, true);
       currentElm.find("."+this.specialclass).remove();
       
-      currentElm.find('.'+lastbutton).attr({"class":this.config.removeclass,"value":"-"});
+     
       
+      //currentElm.find('.'+lastbutton).attr({"class":this.config.removeclass,"value":"-"});
+   
+         
+        $("<input/>",{
+            value : "-",
+            type  : "button",
+            "class" : this.config.removeclass
+            
+        }).insertAfter(currentElm.find('.'+lastbutton));
+        
+        
+       
     
-      
+    
+       
        
     
       
@@ -156,14 +164,7 @@
          $(obj).appendTo($(this.button).closest('.'+this.parentrow));
           
         
-        /*$("<"+$(currentElm).get(0).tagName+"/>",attributes).insertAfter(this.rowclassname+':last').on("click","."+this.config.removeclass,function(){
-            
-            $(this).closest($self.rowclassname).remove();             
-        });  */
-        
-        
-        //this.removeRow(currentElm);
-       
+           
            
       
       }
