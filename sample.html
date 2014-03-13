@@ -70,16 +70,16 @@ Add Block <input type="button" value="+" class="copy"/>
 <div class="step">3 : Pass the Configuration options inside the event of copy button </div>
 <pre>
 <code>
-   $(".copy").on("click",function(){
-    
-                $(this).copyrow({
-                "maximum" :"5",
-                "copyfrom" : "row",
-                "custommessage" : "Maxixmum record exceed",
-                "dynamicname" : true,
-                "removeclass" : "deleted",
-                "parentclass"    : "parent"
-               });
+   $('body').on("click",".copy",function(){
+  
+            $(this).copyrow({
+             "maximum" :"5",
+            "copyfrom" : "row",
+            "custommessage" : "Maxixmum record exceed",
+            "dynamicname" : true,
+            "removeclass" : "deleted",
+            "parentclass"    : "parent"
+            });
   
     });
 
