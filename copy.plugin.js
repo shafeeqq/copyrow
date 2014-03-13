@@ -15,8 +15,8 @@
     
     this.config=$.extend({},defaults,options);
     this.rowclassname='.'+this.config.copyfrom;
-    this.element=element.closest(this.rowclassname);
     this.parentrow=this.config.parentclass;
+    this.element=element.closest('.'+this.parentrow).find(this.rowclassname).first();
     this.button=element;
     this.totalindex=$(this.rowclassname).length+1;
     this.getindex=$(this.button).closest('.'+this.parentrow).find('>*:not(.'+this.parentrow+')'+this.rowclassname).length;
@@ -108,7 +108,7 @@
             type  : "button",
             "class" : this.config.removeclass
             
-        }).insertAfter(currentElm.find('.'+lastbutton));
+        }).insertAfter(currentElm.find('.'+lastbutton)).addClass(this.specialclass);
         
         
        
@@ -142,9 +142,10 @@
                 });
         }
   
+        
        
 
-       $(currentElm).children().each(function(){
+      $(currentElm).find(this.rowclassname).each(function(){
         
             $(this).addClass($self.specialclass);
        })
@@ -153,12 +154,13 @@
 
         var attributes=this.getAttributes(currentElm);
         attributes['html'] = currentElm.html();
+       
         
         
          var obj=$("<"+$(currentElm).get(0).tagName+"/>",attributes).on("click","."+this.config.removeclass,function(){
             
             $(this).closest($self.rowclassname).remove();             
-        });
+        }).addClass(this.specialclass);
         
            
          $(obj).appendTo($(this.button).closest('.'+this.parentrow));
